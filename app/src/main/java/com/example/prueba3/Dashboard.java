@@ -1,5 +1,6 @@
 package com.example.prueba3;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -64,6 +65,8 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void addEvent(View v){
-        
+        Intent i = new Intent(this, NewEvent.class);
+        i.putExtra("userName", userName);
+        startActivity(i);
     }
 }
