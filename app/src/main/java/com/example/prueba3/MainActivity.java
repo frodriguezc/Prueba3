@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         widgetInit();
 
-
     }
 
     private void widgetInit() {
@@ -38,31 +37,42 @@ public class MainActivity extends AppCompatActivity {
         btnRecover = findViewById(R.id.btnRecover);
     }
 
-    public void onLogin(View v) {
-        userName = etUser.getText().toString();
-        userPassword = etPass.getText().toString();
-
-        try (DBAdmin adbs = new DBAdmin(this, "BDPrueba", null, 1);
-             SQLiteDatabase miBD = adbs.getWritableDatabase()) {
-
-            if (miBD != null) {
-                Cursor c = miBD.rawQuery("select * from users where name equals " + userName + " " +
-                                "and password equals " + userPassword,
-                        null);
-                if (c.moveToFirst()){
-                    Log.d(TAG, "onLogin: USER ENCONTRADO");
-                    User user = new User(c.getString(0), c.getString(1));
-                }
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "onLogin: ", e);
-        }
-
+    private void btnsEvent() {
 
     }
-    public void onRegister(View v){
-        Intent i = new Intent(this, Register.class);
-        startActivity(i);
+
+
+    public void btnsActions(View v) {
+        if (v == btnLogin){
+            userName = etUser.getText().toString();
+            userPassword = etPass.getText().toString();
+
+            try (DBAdmin adbs = new DBAdmin(this, "BDPrueba", null, 1);
+                 SQLiteDatabase miBD = adbs.getWritableDatabase()) {
+
+                if (miBD != null) {
+                    Cursor c = miBD.rawQuery("select * from users where name equals " + userName + " " +
+                                    "and password equals " + userPassword,
+                            null);
+                    if (c.moveToFirst()){
+                        Log.d(TAG, "onLogin: USER ENCONTRADO");
+                        User user = new User(c.getString(0), c.getString(1));
+
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "onLogin: ", e);
+            }
+        }
+        if (v == btnRegister){
+            Intent i = new Intent(this, Register.class);
+            startActivity(i);
+        }
+        if (v == btnClear){
+            etUser.setText(null);
+            etPass.setText(null);
+        }
+
     }
 
 }
