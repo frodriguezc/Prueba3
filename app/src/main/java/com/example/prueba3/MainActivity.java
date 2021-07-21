@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void btnsActions(View v) {
+        segueData();
         if (v == btnLogin){
             userName = etUser.getText().toString();
             userPassword = etPass.getText().toString();
@@ -54,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
                  SQLiteDatabase miBD = adbs.getWritableDatabase()) {
 
                 if (miBD != null) {
-                    Cursor c = miBD.rawQuery("select * from users where name equals " + userName + " " +
-                                    "and password equals " + userPassword,
+                    Cursor c = miBD.rawQuery("select * from users where name = '" + userName +
+                                    "' " +
+                                    "and password = '" + userPassword + "'",
                             null);
                     if (c.moveToFirst()){
                         Log.d(TAG, "onLogin: USER ENCONTRADO");
                         User user = new User(c.getString(0), c.getString(1));
-
+                        segueData(user);
                     }
                 }
             } catch (Exception e) {
@@ -78,9 +80,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void segueData() {
+        Intent i = new Intent(this, Dashboard.class);
+        i.putExtra("userName", etUser.getText().toString());
+    }
+
     private void segueData(User user) {
         Intent i = new Intent(this, Dashboard.class);
-        i.putExtra("userName", user.getUserName());
+        i.putExtra("userName", etUser.getText().toString());
+//        i.putExtra("userName", user.getUserName());
         startActivity(i);
     }
 

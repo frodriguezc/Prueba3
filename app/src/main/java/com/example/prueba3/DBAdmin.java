@@ -19,6 +19,7 @@ public class DBAdmin extends SQLiteOpenHelper {
         db.execSQL("create table users(name text primary key, password text)");
         db.execSQL("create table events(event_id integer primary key, title text, date date, " +
                 "importance boolean, obs text, location text, alert date, owner text)");
+//        db.execSQL("insert into users(name, password) values ()")
         Log.d(TAG, "onCreate: CREACION DE DB");
     }
 

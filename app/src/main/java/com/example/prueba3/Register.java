@@ -36,9 +36,9 @@ public class Register extends AppCompatActivity {
         etPass = findViewById(R.id.etPassEnter);
         btnRegister = findViewById(R.id.btnRegisterOK);
         btnCancel = findViewById(R.id.btnCancelReg);
-        questions.add("Favourite food");
-        questions.add("City of birth");
-        questions.add("First pet");
+//        questions.add("Favourite food");
+//        questions.add("City of birth");
+//        questions.add("First pet");
     }
 
     private void btnsHandler(){
@@ -55,19 +55,20 @@ public class Register extends AppCompatActivity {
     }
 
     void register(){
-        String user = etUser.toString();
-        String password = etPass.toString();
+        String user = etUser.getText().toString();
+        String password = etPass.getText().toString();
         try (DBAdmin dba = new DBAdmin(this,"BDPrueba", null, 1);
         SQLiteDatabase miBD = dba.getWritableDatabase()) {
             String[] parameters = {user, password};
             miBD.execSQL("insert into users values (?,?)", parameters);
 
-            Cursor c = miBD.rawQuery("select * from users where name equals " + user, null);
+            Cursor c = miBD.rawQuery("select * from users where name = '" + user + "'", null);
             if (c.moveToFirst()){
                 do{
                     Toast.makeText(this, "User Created" + c.getString(0), Toast.LENGTH_LONG).show();
                 } while(c.moveToNext());
             }
+            finish();
         } catch (Exception e) {
             Log.e(TAG, "register: ", e);
         }

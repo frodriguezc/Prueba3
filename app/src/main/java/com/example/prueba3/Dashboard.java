@@ -48,7 +48,7 @@ public class Dashboard extends AppCompatActivity {
 
         try (DBAdmin dba = new DBAdmin(this, "BDPrueba", null, 1);
              SQLiteDatabase miBD = dba.getReadableDatabase()) {
-            Cursor c = miBD.rawQuery("select * from events where owner equals " + userName, null);
+            Cursor c = miBD.rawQuery("select * from events where owner = '" + userName + "'", null);
             if (c.moveToFirst()) {
                 String index = String.valueOf(c.getPosition());
                 do {
@@ -61,7 +61,9 @@ public class Dashboard extends AppCompatActivity {
 
         userEventAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 userEvents);
-        lvEvents.setAdapter(userEventAdapter);
+        if (userEventAdapter != null) {
+            lvEvents.setAdapter(userEventAdapter);
+        }
     }
 
     public void addEvent(View v){
