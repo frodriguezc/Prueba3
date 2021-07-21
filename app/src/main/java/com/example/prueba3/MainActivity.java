@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         widgetInit();
-
+        btnsEvent();
     }
 
     private void widgetInit() {
@@ -38,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnsEvent() {
-
+        btnLogin.setOnClickListener(this::btnsActions);
+        btnClear.setOnClickListener(this::btnsActions);
+        btnRegister.setOnClickListener(this::btnsActions);
+        btnRecover.setOnClickListener(this::btnsActions);
     }
 
 

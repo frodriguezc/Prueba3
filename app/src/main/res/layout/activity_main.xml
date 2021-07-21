@@ -11,6 +11,7 @@
         android:id="@+id/ivLogo"
         android:layout_width="match_parent"
         android:layout_height="200sp"
+        android:contentDescription="@string/logo"
         app:srcCompat="@drawable/cal_logo" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -22,7 +23,7 @@
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User Name" />
+            android:hint="@string/user_name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -34,7 +35,7 @@
             android:id="@+id/etPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password" />
+            android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -47,25 +48,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Login" />
+            android:text="@string/login"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <Button
             android:id="@+id/btnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Clear" />
+            android:text="@string/clear"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register a new user" />
+        android:text="@string/register_a_new_user" />
 
     <Button
         android:id="@+id/btnRecover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Need help to login?" />
+        android:text="@string/need_help_to_login" />
 </LinearLayout>

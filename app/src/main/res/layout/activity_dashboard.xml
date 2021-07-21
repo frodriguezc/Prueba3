@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha="0.35"
+        android:contentDescription="@string/blackground"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/dash_bgn" />
 
@@ -30,14 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="My Details" />
+                android:text="@string/my_details" />
 
             <AutoCompleteTextView
                 android:id="@+id/actSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Search Events" />
+                android:text="@string/search_events" />
 
         </LinearLayout>
 
@@ -46,8 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:contentDescription="@string/add"
             android:onClick="addEvent"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            android:focusable="true" />
 
         <ListView
             android:id="@+id/lvEvents"

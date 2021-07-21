@@ -5,4 +5,26 @@
     <string name="notes">Notes</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="your_user_name_is">Your User Name Is</string>
+    <string name="user_name">User Name</string>
+    <string name="yoursecretquestion">yoursecretquestion</string>
+    <string name="your_secret_question_answer_is">Your Secret Question Answer Is</string>
+    <string name="don_t_forget_your_login_details">Don\'t Forget your login details!</string>
+    <string name="let_s_go">Let\'s GO!</string>
+    <string name="background">background</string>
+    <string name="my_details">My Details</string>
+    <string name="search_events">Search Events</string>
+    <string name="blackground">blackground</string>
+    <string name="add">add</string>
+    <string name="password">Password</string>
+    <string name="register_a_new_user">Register a new user</string>
+    <string name="need_help_to_login">Need help to login?</string>
+    <string name="logo">logo</string>
+    <string name="login">Login</string>
+    <string name="clear">Clear</string>
+    <string name="register">Register</string>
+    <string name="answer">Answer</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="desired_username">Desired username</string>
 </resources>
