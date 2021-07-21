@@ -1,10 +1,15 @@
 package com.example.prueba3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +38,31 @@ public class MainActivity extends AppCompatActivity {
         btnRecover = findViewById(R.id.btnRecover);
     }
 
+    public void onLogin(View v) {
+        userName = etUser.getText().toString();
+        userPassword = etPass.getText().toString();
 
+        try (DBAdmin adbs = new DBAdmin(this, "BDPrueba", null, 1);
+             SQLiteDatabase miBD = adbs.getWritableDatabase()) {
+
+            if (miBD != null) {
+                Cursor c = miBD.rawQuery("select * from users where name equals " + userName + " " +
+                                "and password equals " + userPassword,
+                        null);
+                if (c.moveToFirst()){
+                    Log.d(TAG, "onLogin: USER ENCONTRADO");
+                    User user = new User(c.getString(0), c.getString(1));
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "onLogin: ", e);
+        }
+
+
+    }
+    public void onRegister(View v){
+        Intent i = new Intent(this, Register.class);
+        startActivity(i);
+    }
 
 }
