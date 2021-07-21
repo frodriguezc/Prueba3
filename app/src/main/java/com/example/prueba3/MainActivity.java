@@ -75,4 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void segueData(User user) {
+        Intent i = new Intent(this, Dashboard.class);
+        i.putExtra("userName", user.getUserName());
+        startActivity(i);
+    }
+
 }

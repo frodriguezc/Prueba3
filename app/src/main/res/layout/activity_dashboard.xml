@@ -38,13 +38,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:text="Search Events" />
+
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvEvents"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <ListView
+            android:id="@+id/lvEvents"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" >
+
+
+        </ListView>
+
     </LinearLayout>
-<!--    TODO: add new event button (float)-->
+
+    <!--    TODO: add new event button (float)-->
 
 </FrameLayout>
