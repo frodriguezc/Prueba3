@@ -5,14 +5,15 @@ import java.util.Date;
 
 public class Event implements Serializable {
 
-    private int eventId, ownerId;
+    private int eventId;
     private Date evDate, alertDate;
-    private String evName,evObs, evLocation;
+    private String evName,evObs, evLocation, owner;
     private boolean evImportant;
 
-    public Event(int eventId, int ownerId, Date evDate, Date alertDate, String evName, String evObs, String evLocation, boolean evImportant) {
+    public Event(int eventId, String owner, Date evDate, Date alertDate, String evName, String evObs
+            , String evLocation, boolean evImportant) {
         this.eventId = eventId;
-        this.ownerId = ownerId;
+        this.owner = owner;
         this.evDate = evDate;
         this.alertDate = alertDate;
         this.evName = evName;
@@ -29,12 +30,12 @@ public class Event implements Serializable {
         this.eventId = eventId;
     }
 
-    public int getOwnerId() {
-        return ownerId;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public Date getEvDate() {
