@@ -61,7 +61,7 @@ public class Dashboard extends AppCompatActivity {
 
         userEventAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
                 userEvents);
-        if (userEventAdapter != null) {
+        if (userEvents != null) {
             lvEvents.setAdapter(userEventAdapter);
         }
     }
