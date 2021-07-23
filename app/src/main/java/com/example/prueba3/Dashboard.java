@@ -32,9 +32,14 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+//        widgetInit();
+
+
+    }
+
+    protected void onStart() {
         widgetInit();
-
-
+        super.onStart();
     }
 
     private void widgetInit() {
@@ -47,8 +52,9 @@ public class Dashboard extends AppCompatActivity {
         userName = b.get("userName").toString();
 
         try (DBAdmin dba = new DBAdmin(this, "BDPrueba", null, 1);
-             SQLiteDatabase miBD = dba.getReadableDatabase()) {
-            Cursor c = miBD.rawQuery("select * from events where owner = '" + userName + "'", null);
+             SQLiteDatabase miBD = dba.getWritableDatabase()) {
+            Cursor c = miBD.rawQuery("select * from events", null);
+//            Cursor c = miBD.rawQuery("select * from events where owner = '" + userName + "'", null);
             if (c.moveToFirst()) {
                 String index = String.valueOf(c.getPosition());
                 do {
